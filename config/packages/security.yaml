@@ -20,9 +20,7 @@ security:
 
             logout:       true
             anonymous:    true
-            guard:
-                authenticators:
-                    - App\Security\EXITAuthenticator
+
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
