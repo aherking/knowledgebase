@@ -1,25 +1,35 @@
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
+        App\Entity\User:
+            algorithm: argon2i
+
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
-
     providers:
-        fos_userbundle:
-            id: fos_user.user_provider.username
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+                # optional: if you're using multiple Doctrine entity
+                # managers, this option defines which one to use
+                # manager_name: 'customer'
 
     firewalls:
         main:
             pattern: ^/
             user_checker: security.user_checker
             form_login:
-                provider: fos_userbundle
+                provider: 
                 csrf_token_generator: security.csrf.token_manager
 
             logout:       true
             anonymous:    true
+            guard:
+                authenticators:
+                    - App\Security\SecurityControllerAuthenticator
 
 
     access_control:
