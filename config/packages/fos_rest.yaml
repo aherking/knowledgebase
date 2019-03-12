@@ -6,3 +6,6 @@ fos_rest:
         rules:
             - { path: ^/, prefer_extension: true, fallback_format: htnk, priorities: [ html ] }
             - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+    body_listener:
+        decoders:
+            json: fos_rest.decoder.json
