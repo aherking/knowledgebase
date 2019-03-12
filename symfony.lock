@@ -81,6 +81,15 @@
     "egulias/email-validator": {
         "version": "2.1.7"
     },
+    "friendsofsymfony/rest-bundle": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "258300d52be6ad59b32a888d5ddafbf9638540ff"
+        }
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -290,6 +299,9 @@
     "symfony/security-http": {
         "version": "v4.2.4"
     },
+    "symfony/serializer": {
+        "version": "v4.2.4"
+    },
     "symfony/stopwatch": {
         "version": "v4.2.4"
     },
@@ -374,6 +386,12 @@
     },
     "twig/twig": {
         "version": "v2.6.2"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
+    },
+    "willdurand/negotiation": {
+        "version": "v2.3.1"
     },
     "zendframework/zend-code": {
         "version": "3.3.1"
