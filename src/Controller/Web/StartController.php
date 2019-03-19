@@ -12,7 +12,7 @@ class StartController extends AbstractController
     public function index()
     {
 
-        return $this->render('/index/base.html.twig', [
+        return $this->render('/index/index.html.twig', [
    
         ]);
     }
