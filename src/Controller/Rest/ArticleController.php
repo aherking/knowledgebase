@@ -25,9 +25,10 @@ class ArticleController extends FOSRestController implements ClassResourceInterf
     ) {
         $this->entityManager = $entityManager;
     }
+
     /**
      * Creates an Article resource
-     * @Rest\Post("/article")
+     * @Rest\Post("/article/post")
      * @param Request $request
      * @return Response
      */
