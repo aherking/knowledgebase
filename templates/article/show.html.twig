@@ -12,12 +12,28 @@
                 <td>{{ article.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
-                <td>{{ article.title }}</td>
+                <th>Name</th>
+                <td>{{ article.name }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Changed</th>
+                <td>{{ article.changed ? article.changed|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ article.userid }}</td>
             </tr>
             <tr>
                 <th>Workflow</th>
                 <td>{{ article.workflow }}</td>
+            </tr>
+            <tr>
+                <th>Errormessage</th>
+                <td>{{ article.errormessage }}</td>
             </tr>
             <tr>
                 <th>Solution</th>

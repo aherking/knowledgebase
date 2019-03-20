@@ -40,7 +40,7 @@ class Tag
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Articles", mappedBy="tagid")
+     * @ORM\ManyToMany(targetEntity="Article", mappedBy="tagid")
      */
     private $articleid;
 
@@ -82,14 +82,14 @@ class Tag
     }
 
     /**
-     * @return Collection|Articles[]
+     * @return Collection|Article[]
      */
     public function getArticleid(): Collection
     {
         return $this->articleid;
     }
 
-    public function addArticleid(Articles $articleid): self
+    public function addArticleid(Article $articleid): self
     {
         if (!$this->articleid->contains($articleid)) {
             $this->articleid[] = $articleid;
@@ -99,7 +99,7 @@ class Tag
         return $this;
     }
 
-    public function removeArticleid(Articles $articleid): self
+    public function removeArticleid(Article $articleid): self
     {
         if ($this->articleid->contains($articleid)) {
             $this->articleid->removeElement($articleid);
@@ -108,5 +108,8 @@ class Tag
 
         return $this;
     }
-
+   
+   public function __toString() {
+    return $this->name;
+}
 }

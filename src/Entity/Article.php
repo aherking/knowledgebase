@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -32,7 +32,7 @@ class Article
 
     /**
      * @var \DateTime
-     *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="date", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $date = 'CURRENT_TIMESTAMP';
@@ -75,7 +75,7 @@ class Article
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Tags", inversedBy="articleid")
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="articleid")
      * @ORM\JoinTable(name="articles_tags_relations",
      *   joinColumns={
      *     @ORM\JoinColumn(name="articleID", referencedColumnName="id")
@@ -185,14 +185,14 @@ class Article
     }
 
     /**
-     * @return Collection|Tags[]
+     * @return Collection|Tag[]
      */
     public function getTagid(): Collection
     {
         return $this->tagid;
     }
 
-    public function addTagid(Tags $tagid): self
+    public function addTagid(Tag $tagid): self
     {
         if (!$this->tagid->contains($tagid)) {
             $this->tagid[] = $tagid;
@@ -201,7 +201,7 @@ class Article
         return $this;
     }
 
-    public function removeTagid(Tags $tagid): self
+    public function removeTagid(Tag $tagid): self
     {
         if ($this->tagid->contains($tagid)) {
             $this->tagid->removeElement($tagid);
