@@ -1,5 +1,5 @@
 web_controllers:
-    resource: ../../src/Controller/Web/
+    resource: ../../src/Controller/
     type: annotation
 
 rest_controller:
