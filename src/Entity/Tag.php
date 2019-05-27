@@ -33,9 +33,9 @@ class Tag
     /**
      * @var string|null
      *
-     * @ORM\Column(name="parents", type="string", length=255, nullable=true)
+     * @ORM\Column(name="main", type="boolean", length=1, nullable=true, options={"default" : 0})
      */
-    private $parents;
+    private $main;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -69,14 +69,14 @@ class Tag
         return $this;
     }
 
-    public function getParents(): ?string
+    public function getMain(): ?string
     {
-        return $this->parents;
+        return $this->main;
     }
 
-    public function setParents(?string $parents): self
+    public function setMain(?string $parents): self
     {
-        $this->parents = $parents;
+        $this->parents = $main;
 
         return $this;
     }
