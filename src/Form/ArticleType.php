@@ -6,7 +6,7 @@ use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -14,7 +14,7 @@ class ArticleType extends AbstractType
         $builder
             ->add('name')
             ->add('userid')
-            ->add('workflow')
+            ->add('workflow', TextareaType::class, array('attr' => array('class' => 'ckeditor')))
             ->add('errormessage')
             ->add('solution')
             ->add('tagid')
