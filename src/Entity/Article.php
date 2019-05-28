@@ -112,9 +112,9 @@ class Article
         return $this->active;
     }
 
-    public function setActive(?string $parents): self
+    public function setActive(bool $active): self
     {
-        $this->parents = $active;
+        $this->active = $active;
 
         return $this;
     }

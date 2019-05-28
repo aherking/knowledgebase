@@ -1,16 +1,112 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-        <link href="{{ asset('build/app.css') }}" rel="stylesheet"/>   
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}
-	<script src="{{ asset('build/app.js') }}"></script> 
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Knowledgebase Home{% endblock %}</title>
+    <!-- LOADING STYLESHEETS -->
+    {% block stylesheets %}
+        <link href="{{ asset('build/app.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('build/style.css') }}" rel="stylesheet"/>
+
+    {% endblock %}
+
+</head>
+
+<body>
+<!--
+<div class="container-fluid featured-area-white-border">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="login-box border-right-1"> <a href="#"><i class="fa fa-key"></i> Login</a>
+                </div>
+                <div class="login-box border-left-1 border-right-1"> <a href="#"><i class="fa fa-pencil"></i> Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- TOP NAVIGATION -->
+<div class="container-fluid">
+    <div class="navigation">
+        <div class="row">
+            <ul class="topnav">
+                {% block topnavigation %}
+                    <li></li>
+                    <li><a href="/"><i class="fa fa-home"></i> Home</a>
+                    </li>
+                    <li><a href="/admin"><i class="fa fa-book"></i>Admin</a>
+                    </li>
+                {% endblock %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END TOP NAVIGATION -->
+{% block searchbar %}
+<!-- SEARCH FIELD AREA -->
+<div class="searchfield bg-hed-six">
+    <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+        <div class="row text-center margin-bottom-20">
+            <h1 class="white"> Shopware Knowledge Base</h1>
+            <span class="nested"> your place to learn </span>
+        </div>
+        <br>
+        <div class="row search-row">
+            <div class="col-md-12">
+                <input type="text" class="search" placeholder="Suchbegriff eingeben"> <a class="buttonsearch btn btn-info btn-lg" href="search-results.html">Search</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SEARCH FIELD AREA -->
 {% endblock %}
-    </body>
+<!-- MAIN SECTION -->
+<div class="container featured-area-dark padding-30">
+    <!-- ARTICLE CATEGORIES SECTION -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="fb-heading" align ="center">{% block bodyheader %}Artikel Tags{% endblock %}</div>
+            <hr class="style-two">
+            <div class="row">
+
+                {% block body %}
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+<!-- END ARTICLES CATEOGIRES SECTION -->
+
+</div>
+</div>
+<!-- END MAIN SECTION -->
+
+<!-- END FOOTER -->
+<!-- COPYRIGHT INFO -->
+<div class="container-fluid footer-copyright marg30">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="float-left">Copyright &#xA9; 2019 #hacktime by TE</div>
+                <div class="float-right">
+                    <i class="fa fa-facebook"></i> &#xA0;
+                    <i class="fa fa-twitter"></i> &#xA0;
+                    <i class="fa fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END COPYRIGHT INFO -->
+<!-- LOADING MAIN JAVASCRIPT -->
+{% block javascripts %}
+    <script src="{{ asset('build/app.js') }}"></script>
+{% endblock %}
+
+</body>
+
 </html>
