@@ -7,7 +7,7 @@
     {% for tag in tags if tag.main %}
     <div class="col-lg-6 margin-bottom-20">
 
-        <div class="fat-heading-abb"> <a href="single-category.html"><i class="fa fa-folder"></i> {{ tag.name }} <span class="cat-count">{% for article in tag.getArticleid if article.active %} ({{ articles|length }}) {% else %} (0) {% endfor %}</span></a>
+        <div class="fat-heading-abb"> <a href="{{ path('tag_show', {'id': tag.id}) }}"><i class="fa fa-folder"></i> {{ tag.name }} <span class="cat-count">{% set count = 0 %}{% for article in tag.getArticleid if article.active %}{% set count = count + 1 %}{% endfor %} ({{ count }})</span></a>
         </div>
         <div class="fat-content-small padding-left-30">
             <ul>

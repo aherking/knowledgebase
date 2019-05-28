@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Tag;
+use App\Entity\Article;
 use App\Form\TagType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -56,8 +57,11 @@ class TagController extends AbstractController
      */
     public function show(Tag $tag): Response
     {
+        $articles = $tag->getArticleid();
+
         return $this->render('tag/show.html.twig', [
             'tag' => $tag,
+            'articles' => $articles
         ]);
     }
 

@@ -32,7 +32,7 @@
             <div class="article-tags">
                 <b>Tags:</b>
                 {% for tag in article.getTagid() %}
-                <a href="#" class="btn btn-outline-secondary btn-sm">{{ tag.name }}</a>
+                <a href="{{ path('tag_show', {'id': tag.id}) }}" class="btn btn-outline-secondary btn-sm">{{ tag.name }}</a>
                 {% endfor %}
             </div>
         </div>
