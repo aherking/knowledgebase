@@ -1,0 +1,9 @@
+easy_admin:
+    entities:
+        Article:
+            class: App\Entity\Article
+            form:
+                fields:
+                    # ...
+                    - active
+                    - { property: 'solution', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }

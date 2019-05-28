@@ -24,6 +24,13 @@ class Article
     private $id;
 
     /**
+     * @var string|null
+     *
+     * @ORM\Column(name="active", type="boolean", length=1, nullable=false, options={"default" : 0})
+     */
+    private $active;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
@@ -99,6 +106,19 @@ class Article
     {
         return $this->id;
     }
+
+    public function getActive(): ?string
+    {
+        return $this->active;
+    }
+
+    public function setActive(?string $parents): self
+    {
+        $this->parents = $active;
+
+        return $this;
+    }
+
 
     public function getName(): ?string
     {
