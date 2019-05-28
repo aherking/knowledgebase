@@ -4,21 +4,22 @@
 {% block bodyheader %}Artikel-Übersicht{% endblock %}
 
 {% block body %}
+    {% for tag in tags if tag.main %}
     <div class="col-lg-6 margin-bottom-20">
-        <div class="fat-heading-abb"> <a href="single-category.html"><i class="fa fa-folder"></i> General <span class="cat-count">(10)</span></a>
+
+        <div class="fat-heading-abb"> <a href="single-category.html"><i class="fa fa-folder"></i> {{ tag.name }} <span class="cat-count">{% for article in tag.getArticleid if article.active %} ({{ articles|length }}) {% else %} (0) {% endfor %}</span></a>
         </div>
         <div class="fat-content-small padding-left-30">
             <ul>
-                {% for article in articles %}
+                {% for article in tag.getArticleid if article.active %}
                 <li> <a href="{{ path('article_show', {'id': article.id}) }}"><i class="fa fa-file-text-o"> {{ article.name }} </i></a>
                 </li>
-                {% else %}
-                    <tr>
-                        <td colspan="9">no records found</td>
-                    </tr>
                 {% endfor %}
             </ul>
         </div>
+
     </div>
+
+    {% endfor %}
 
 {% endblock %}

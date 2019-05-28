@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Tag;
 use App\Form\ArticleType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,9 +23,13 @@ class ArticleController extends AbstractController
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)
             ->findAll();
+        $tags = $this->getDoctrine()
+            ->getRepository((Tag::class))
+            ->findAll();
 
         return $this->render('article/index.html.twig', [
             'articles' => $articles,
+            'tags' => $tags
         ]);
     }
 
