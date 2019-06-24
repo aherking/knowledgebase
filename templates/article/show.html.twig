@@ -13,26 +13,31 @@
             <a href="#"><i class="fa fa-pencil-square-o"></i> {{ article.name }}</a>
         </div>
         <div class="article-info">
+            <div class="user-name"><a href="#"><i class="fa fa-user-md"></i> {{ article.getAuthor().email }}</a></div>
             <div class="art-date"><a href="#"><i class="fa fa-calendar-o"></i> {{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</a></div>
-            <div class="art-category"><a href="#"><i class="fa fa-folder"></i> {% for tag in article.getTagid() %} {% if tag.main %}{{  tag.name }} {% endif %}{% endfor %}</a></div>
             <div class="art-comments"><a href="#"><i class="fa fa-comments-o"></i> 4 Comments </a></div>
         </div>
         <div class="article-content">
+            <h2>Workflow</h2>
             <p>
-                    {{ article.workflow }}
+                    {{ article.workflow|raw }}
             </p>
+            <h2>Lösung</h2>
             <p>
-                    {{ article.solution }}
+                    {{ article.solution|raw }}
             </p>
+            <h2>Fehlermeldung</h2>
             <p>
-                    {{ article.errormessage }}
+                    {{ article.errormessage|raw }}
             </p>
         </div>
         <div class="article-content">
             <div class="article-tags">
                 <b>Tags:</b>
                 {% for tag in article.getTagid() %}
-                <a href="{{ path('tag_show', {'id': tag.id}) }}" class="btn btn-outline-secondary btn-sm">{{ tag.name }}</a>
+                    {% if tag.main == 0 %}
+                        <a href="{{ path('tag_show', {'id': tag.id}) }}" class="btn btn-outline-secondary btn-sm">{{ tag.name }}</a>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
