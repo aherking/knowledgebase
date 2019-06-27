@@ -5,5 +5,5 @@ easy_admin:
             form:
                 fields:
                     # ...
-                    - active
+                    - { property: 'active' }
                     - { property: 'solution', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
